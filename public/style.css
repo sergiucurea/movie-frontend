@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+}
+
+.rows{
+    display:flex;
+    flex-direction: row;
+}
+
+.columns{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.MainView {
+    padding-top:69px;
+}
+
+.sideRow{
+    width:20%;
+    position:fixed;
+}
+
+.SideComponentContainer{
+    height:600px;
+    width:80%;
+    margin:auto;
+    
+}
+
+.SideComponent {
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height:100%;
+    
+}
+ul.topnav {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    background-color: #242727;
+    width:100%;
+    top:0;
+    position:fixed;
+    background-color: #242727;
+    width:100%;
+    z-index:99;
+ 
+}
+
+ul.topnav li {
+    float:left;
+  }
+
+  ul.topnav li+li{
+    float:right;
+  }
+
+ul.topnav li a {
+    display:block;
+    color:white;
+    text-decoration: none;
+    padding: 22px 24px;
+    text-align:center;
+    height:25px;
+    font-family:"Lucida Console", Monaco, monospace;
+}
+
+ul.topnav li a.title {
+    font-size:20px;
+}
+
+ul.topnav li a:hover {
+    background-color:#0bce1b9f;
+}
+
+ul.sidemenu{
+    list-style-type:none;
+    height:100%;
+    width:100%;
+    padding:0;
+  
+  
+}
+
+ul.sidemenu li {
+    text-decoration:none;
+    padding: 16px 18px;
+    height:4%;  
+    margin:auto;
+    text-align: center;
+
+}
+ul.sidemenu li a {
+    font-size:16px;
+    font-family:"Lucida Console", Monaco, monospace;
+    width:80%;
+    margin:auto;
+    letter-spacing:2px;
+    
+}
+
+.SideComponent h2{
+    text-align:center;
+    font-family:"Lucida Console", Monaco, monospace;
+    padding:20px;
+    letter-spacing:4px;
+    color:#2f700e;
+}
+
+.MovieComponent{
+    background:red;
+    height:1200px;
+    width:80%;
+    margin:20px;
+    margin-bottom:0;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   margin-left:20%;
+}
+
+
