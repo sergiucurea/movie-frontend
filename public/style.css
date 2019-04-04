@@ -1,5 +1,11 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Abel');
+html{
+    min-width:352px;
+}
+
+body{
     margin: 0;
+    min-width:352px;
 }
 
 .rows{
@@ -10,31 +16,30 @@ body {
 .columns{
     display:flex;
     flex-direction: column;
-
 }
 
-.MainView {
+.MainView{
     padding-top:69px;
 }
 
 .sideRow{
     width:20%;
     position:fixed;
+    min-width:214px;
 }
 
 .SideComponentContainer{
-    height:600px;
+    height:700px;
     width:80%;
     margin:auto;
-    
 }
 
-.SideComponent {
+.SideComponent{
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height:100%;
-    
+    height:100%;   
 }
+
 ul.topnav {
     list-style-type:none;
     margin:0;
@@ -46,18 +51,18 @@ ul.topnav {
     background-color: #242727;
     width:100%;
     z-index:99;
- 
+    min-width:352px;
 }
 
 ul.topnav li {
     float:left;
-  }
+}
 
-  ul.topnav li+li{
+ul.topnav li+li{
     float:right;
-  }
+}
 
-ul.topnav li a {
+ul.topnav li a{
     display:block;
     color:white;
     text-decoration: none;
@@ -67,38 +72,51 @@ ul.topnav li a {
     font-family:"Lucida Console", Monaco, monospace;
 }
 
-ul.topnav li a.title {
+ul.topnav li a.title{
     font-size:20px;
 }
 
-ul.topnav li a:hover {
-    background-color:#0bce1b9f;
+ul.topnav li a:hover{
+    background-color:#05750f;
 }
 
 ul.sidemenu{
     list-style-type:none;
-    height:100%;
     width:100%;
     padding:0;
-  
-  
 }
 
-ul.sidemenu li {
+.SideComponent button{
+    width:100%;
+    margin:auto;
+    border:none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height:10%;
+    background-color:#242727;
+    color:white;
+    font-family:"Lucida Console", Monaco, monospace;
+    font-size:20px;
+}
+
+.SideComponent button:hover{
+    background-color:#05750f;
+}
+
+ul.sidemenu li{
     text-decoration:none;
-    padding: 16px 18px;
+    padding: 0px 4px;
     height:4%;  
     margin:auto;
-    text-align: center;
-
+    text-align: left;
+    text-indent:10%;
 }
-ul.sidemenu li a {
-    font-size:16px;
-    font-family:"Lucida Console", Monaco, monospace;
+
+ul.sidemenu li a{
+    font-size:24px;
+    font-family: 'Abel', sans-serif;
     width:80%;
     margin:auto;
-    letter-spacing:2px;
-    
+    letter-spacing:2px; 
 }
 
 .SideComponent h2{
@@ -109,15 +127,128 @@ ul.sidemenu li a {
     color:#2f700e;
 }
 
-.MovieComponent{
-    background:red;
-    height:1200px;
+.MovieComponentContainer{
+    display:flex;
+    flex-wrap:wrap; 
+    align-content: flex-start;
     width:80%;
     margin:20px;
     margin-bottom:0;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   margin-left:20%;
+    margin-left:20%; 
 }
 
+.MovieComponent{
+    width: 18%;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin:1%;
+    position:relative;
+}
+
+.MovieComponent img{
+    width:100%;
+}
+
+.MovieComponent h1{
+    font-family: 'Abel', sans-serif;
+    font-size:20px;
+    font-weight:bolder;
+    letter-spacing:2px;
+    margin-left:10px;
+}
+
+.MovieComponent p{
+    font-family: 'Abel', sans-serif;
+    font-size:18px;
+    margin-left:10px;
+    color:gray;    
+}
+
+.MovieComponent .rating-container{
+    padding:30px;
+}
+
+.MovieComponent .rating{
+    position: absolute;
+    bottom:0;
+    left:2%;
+    width:100%;
+}
+
+.MovieComponent .rating p{
+    font-size:30px;
+    color:#4e4d4d;
+    margin:0;
+}
+
+.MovieComponent .rating p.rating-by{
+    font-size:13px;
+    margin-left:20%;
+}
+
+@media screen and (max-width: 1475px){
+
+    ul.sidemenu li a{
+        font-size:20px;
+    }
+
+    .SideComponent h2{
+        font-size:20px;
+    }
+    
+    .MovieComponent{
+        width: 23%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    ul.sidemenu li a{
+        font-size:18px;
+    }
+
+    .SideComponent h2{
+        font-size:14px;
+    }
+}
+
+@media screen and (max-width: 1070px){
+
+    .MovieComponentContainer{
+        margin-left:214px;
+    }
+}
+@media screen and (max-width: 1000px) {
+
+    .SideComponent h2{
+        font-size:10px;
+    }
+}
+
+@media screen and (max-width: 875px) {
+
+    .SideComponent h2{
+        display: none;
+    }
+
+    .MovieComponent{
+        width: 30.6666667%;
+    }
+}
+
+@media screen and (max-width: 650px){
+
+    .MovieComponent{
+        width: 48%;
+    } 
+}
+
+@media screen and (max-width: 450px){
+    
+    .MovieComponent{
+        width: 98%;
+    }
+}
 
