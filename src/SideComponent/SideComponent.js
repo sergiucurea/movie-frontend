@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import CategoryService from '../Services/CategoryService.js'
 
 export default class SideComponent extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             categoryArray: [],
             loading: true,
@@ -27,7 +27,6 @@ export default class SideComponent extends Component {
 
     loadCategories() {
         CategoryService.getCategories().then(result => {
-            console.log(result);
             this.setState({
                 categoryArray: result,
                 loading: false

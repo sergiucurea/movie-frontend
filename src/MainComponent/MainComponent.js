@@ -4,6 +4,7 @@ import SideComponent from '../SideComponent/SideComponent.js'
 import MovieComponent from '../MovieComponent/MovieComponent.js';
 import MovieService from '../Services/MovieService.js';
 import { throwStatement } from 'babel-types';
+import SearchService from '../Services/SearchService.js';
 export default class MainComponent extends Component {
     constructor(props){
         super(props)
@@ -20,6 +21,18 @@ export default class MainComponent extends Component {
         
     }
 
+    dislayByName(searchString,page,limit){
+        SearchService.getSearchSuggestion(searchString,page,limit).then(result=>{
+            this.setState({
+                movieArray:this.state.movieArray.concat(result),
+                loading:false,
+                pageIndex:this.state.pageIndex+1,
+                category:[]
+               })
+        })
+
+    }
+
     clearScreen(){
         this.setState({
             movieArray:[],
@@ -30,7 +43,6 @@ export default class MainComponent extends Component {
     
     loadMovies(page,limit){
         MovieService.getMovies(page,limit).then(result=>{
-            console.log(result);
              this.setState({
                  movieArray:this.state.movieArray.concat(result),
                  loading:false,
@@ -42,7 +54,6 @@ export default class MainComponent extends Component {
 
     loadMoviesFiltered(page,limit,categoryArray){
             MovieService.getFilteredMovies(page,limit,categoryArray).then(result=>{
-                console.log(result);
                 this.setState({
                     movieArray:this.state.movieArray.concat(result),
                     loading:false,
@@ -53,7 +64,6 @@ export default class MainComponent extends Component {
             }   
 
     applyFilters(categoriesArray){
-        console.log(categoriesArray);
         if (categoriesArray.length!=0){
             this.clearScreen();
             this.loadMoviesFiltered(1,15,categoriesArray);
@@ -78,6 +88,7 @@ export default class MainComponent extends Component {
                 this.loadMovies(this.state.pageIndex,15);
             else
                 this.loadMoviesFiltered(this.state.pageIndex,15,this.state.category);
+    
     }
 
     render(){
@@ -86,7 +97,7 @@ export default class MainComponent extends Component {
         }
         return(
         <div className="MainView rows">
-            <HeaderComponent/>
+            <HeaderComponent />
             <div className="sideRow">
                 <div className="SideComponentContainer">
                     <SideComponent applyFilters={this.applyFilters.bind(this)}/>
