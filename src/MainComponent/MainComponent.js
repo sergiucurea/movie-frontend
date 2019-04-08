@@ -12,7 +12,8 @@ export default class MainComponent extends Component {
         movieArray:[],
         loading:true,
         pageIndex:1,
-        category:[]
+        category:[],
+        searchString:""
         }
        
         this.trackScrolling=this.trackScrolling.bind(this);
@@ -21,13 +22,14 @@ export default class MainComponent extends Component {
         
     }
 
-    dislayByName(searchString,page,limit){
-        SearchService.getSearchSuggestion(searchString,page,limit).then(result=>{
+    dislayByName(searchStringy,page,limit){
+        SearchService.getSearchSuggestion(searchStringy,page,limit).then(result=>{
             this.setState({
                 movieArray:this.state.movieArray.concat(result),
                 loading:false,
                 pageIndex:this.state.pageIndex+1,
-                category:[]
+                category:[],
+                searchString:searchStringy
                })
         })
 
@@ -37,7 +39,8 @@ export default class MainComponent extends Component {
         this.setState({
             movieArray:[],
             loading:false,
-            pageIndex:1
+            pageIndex:1,
+            searchString:""
            })
         }
     
@@ -74,6 +77,19 @@ export default class MainComponent extends Component {
         }  
     }
 
+    searchEntered(searchString){
+        if (searchString==""){
+            this.clearScreen();
+            this.loadMovies(1,15);
+        }
+        else{
+            this.clearScreen();
+            this.dislayByName(searchString,1,15);
+        }
+    }
+
+ 
+
     componentDidMount() {
         this.loadMovies(this.state.pageIndex,15);
         document.addEventListener('scroll', this.trackScrolling);
@@ -84,10 +100,19 @@ export default class MainComponent extends Component {
         let client=document.documentElement.clientHeight;
         let offset=document.documentElement.offsetHeight;
         if(current+client==offset)
-            if (this.state.category.length==0)
+            if (this.state.category.length==0&&this.state.searchString.length==0){
+               // console.log("I am calling loadmovies");
                 this.loadMovies(this.state.pageIndex,15);
-            else
+            }
+            else 
+            if (this.state.searchString.length>0&&this.state.category.length==0){
+               // console.log("I am calling displayByName");
+                this.dislayByName(this.state.searchString,this.state.pageIndex,15);
+            }
+            else if(this.state.searchString.length==0&&this.state.category.length>0){
                 this.loadMoviesFiltered(this.state.pageIndex,15,this.state.category);
+              //  console.log("I am calling loadMoviessFiltered");
+            }
     
     }
 
@@ -97,10 +122,10 @@ export default class MainComponent extends Component {
         }
         return(
         <div className="MainView rows">
-            <HeaderComponent />
+            <HeaderComponent searchEntered={this.searchEntered.bind(this)} />
             <div className="sideRow">
                 <div className="SideComponentContainer">
-                    <SideComponent applyFilters={this.applyFilters.bind(this)}/>
+                    <SideComponent applyFilters={this.applyFilters.bind(this)} />
                 </div>
             </div>
             <div className="MovieComponentContainer">

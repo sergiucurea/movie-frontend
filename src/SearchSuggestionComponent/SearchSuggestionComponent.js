@@ -7,7 +7,6 @@ export default class SearchSuggestionComponent extends Component{
     }
 
     render(){
-        console.log("here");
       if (this.props.searchString.length>0)
             return (
             <div className="searchSuggestion">
