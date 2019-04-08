@@ -18,17 +18,17 @@ body{
     flex-direction: column;
 }
 
-.MainView{
+.main-view{
     padding-top:69px;
 }
 
-.sideRow{
+.side-row{
     width:20%;
     position:fixed;
     min-width:120px;
 }
 
-.SideComponentContainer{
+.side-component-container{
     height:700px;
     width:80%;
     margin:auto;
@@ -66,7 +66,7 @@ ul.topnav li input {
     font-size:15px;
 }
 
-ul.topnav li .searchSuggestion {
+ul.topnav li .search-suggestion {
     position:absolute;
     background-color:white;
     top:calc(25% + 38px);
@@ -137,7 +137,7 @@ ul.sidemenu li a{
     color:#2f700e;
 }
 
-.MovieComponentContainer{
+.movie-component-container{
     display:flex;
     flex-wrap:wrap; 
     align-content: flex-start;
@@ -149,7 +149,7 @@ ul.sidemenu li a{
     margin-left:20%; 
 }
 
-.MovieComponent{
+.movie-component{
     width: 18%;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -157,11 +157,11 @@ ul.sidemenu li a{
     position:relative;
 }
 
-.MovieComponent img{
+.movie-component img{
     width:100%;
 }
 
-.MovieComponent h1{
+.movie-component h1{
     font-family: 'Abel', sans-serif;
     font-size:20px;
     font-weight:bolder;
@@ -169,72 +169,72 @@ ul.sidemenu li a{
     margin-left:10px;
 }
 
-.MovieComponent p{
+.movie-component p{
     font-family: 'Abel', sans-serif;
     font-size:18px;
     margin-left:10px;
     color:gray;    
 }
 
-.MovieComponent .rating-container{
+.movie-component .rating-container{
     padding:30px;
 }
 
-.MovieComponent .rating{
+.movie-component .rating{
     position: absolute;
     bottom:0;
     left:2%;
     width:100%;
 }
 
-.MovieComponent .rating p{
+.movie-component .rating p{
     font-size:30px;
     color:#4e4d4d;
     margin:0;
     
 }
 
-.MovieComponent .rating p.rating-by{
+.movie-component .rating p.rating-by{
     font-size:13px;
     margin-left:20%;
 }
 
-.SearchSuggestionResultComponent{
+.search-suggestion-result-component{
    justify-content:space-between;
    color:#242727;
    font-family:"Lucida Console", Monaco, monospace;
    
 }
 
-.SearchSuggestionResultComponent:hover{
+.search-suggestion-result-component:hover{
     
     color:white;
     background-color:#05750f;
  }
  
 
-.SearchSuggestionResultComponent img{
+.search-suggestion-result-component img{
     width:20%;
     height:20%;
 }
 
-.SearchSuggestionResultComponent .details h1{
+.search-suggestion-result-component .details h1{
     font-size:20px;
     margin:0;
     letter-spacing:2px;
 }
 
-.SearchSuggestionResultComponent .details p{
+.search-suggestion-result-component .details p{
     font-size:12px;
     margin:0;
     margin-bottom:5px;
 }
 
-.SearchSuggestionResultComponent .details p{
+.search-suggestion-result-component .details p{
     align-self:flex-end;
 }
 
-.SearchSuggestionResultComponent .details p.bottom{
+.search-suggestion-result-component .details p.bottom{
     font-size:10px;
     margin:0;
     margin-bottom:5px;
@@ -250,11 +250,11 @@ ul.sidemenu li a{
         font-size:20px;
     }
     
-    .MovieComponent{
+    .movie-component{
         width: 23%;
     }
 
-    .SideComponentContainer{
+    .side-component-container{
         height:630px;
 
 }
@@ -274,21 +274,21 @@ ul.sidemenu li a{
         font-size:14px;
     }
 
-    .SearchSuggestionResultComponent .details h1{
+    .search-suggestion-result-component .details h1{
         font-size:18px;
     
     }
     
-    .SearchSuggestionResultComponent .details p{
+    .search-suggestion-result-component .details p{
         font-size:10px;
 
     }
 
-    .SearchSuggestionResultComponent .details p.bottom{
+    .search-suggestion-result-component .details p.bottom{
         font-size:8px;
     }
 
-    .SideComponentContainer{
+    .side-component-container{
         height:540px;   
     }
 
@@ -297,24 +297,24 @@ ul.sidemenu li a{
 
 @media screen and (max-width: 1070px){
     
-    .SideComponentContainer{
+    .side-component-container{
         height:530px;   
     }
 
     ul.sidemenu li{
         text-indent:0;
     }
-    .SearchSuggestionResultComponent .details h1{
+    .search-suggestion-result-component .details h1{
         font-size:12px;
     
     }
     
-    .SearchSuggestionResultComponent .details p{
+    .search-suggestion-result-component .details p{
         font-size:8px;
 
     }
 
-    .SearchSuggestionResultComponent .details p.bottom{
+    .search-suggestion-result-component .details p.bottom{
         font-size:6px;
     }
 }
@@ -334,7 +334,7 @@ ul.sidemenu li a{
         font-size:17px;
     }
 
-    .SideComponentContainer{
+    .side-component-container{
         height:490px;   
     }
 
@@ -346,7 +346,7 @@ ul.sidemenu li a{
         width:50%;
     }
 
-    ul.topnav li .searchSuggestion {
+    ul.topnav li .search-suggestion {
         width:calc(50% + 6px);
     }
 }
@@ -358,7 +358,7 @@ ul.sidemenu li a{
         font-size:14px;
     }
 
-    .SideComponentContainer{
+    .side-component-container{
         height:400px;   
     }
     .SideComponent button{
@@ -371,7 +371,7 @@ ul.sidemenu li a{
         display: none;
     }
 
-    .MovieComponent{
+    .movie-component{
         width: 30.6666667%;
     }
     
@@ -394,7 +394,7 @@ ul.sidemenu li a{
     }
 
 
-    .MovieComponent{
+    .movie-component{
         width: 48%;
     } 
 
@@ -402,17 +402,17 @@ ul.sidemenu li a{
         width:60%;
     }
 
-    ul.topnav li .searchSuggestion {
+    ul.topnav li .search-suggestion {
         width:calc(60% + 6px);
     }
-    .MovieComponentContainer{
+    .movie-component-container{
         margin-left:120px;
         }
 }
 
 @media screen and (max-width: 450px){
     
-    .MovieComponent{
+    .movie-component{
         width: 98%;
     }
 
@@ -420,19 +420,19 @@ ul.sidemenu li a{
         width:67%;
     }
 
-    ul.topnav li .searchSuggestion {
+    ul.topnav li .search-suggestion {
         width:calc(67% + 6px);
     }
 
-    .SearchSuggestionResultComponent .details h1{
+    .search-suggestion-result-component .details h1{
         font-size:12px;    
     }
     
-    .SearchSuggestionResultComponent .details p{
+    .search-suggestion-result-component .details p{
         font-size:7px;
     }
 
-    .SearchSuggestionResultComponent .details p.bottom{
+    .search-suggestion-result-component .details p.bottom{
         font-size:5px;
     }
 }

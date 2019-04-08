@@ -7,11 +7,12 @@ export default class SearchSuggestionComponent extends Component{
     }
 
     render(){
-      if (this.props.searchString.length>0)
+      const {searchString,movieArray}=this.props;
+      if (searchString.length>0)
             return (
-            <div className="searchSuggestion">
+            <div className="search-suggestion">
             {
-             this.props.movieArray.map((movie,i)=>(
+            movieArray.map((movie,i)=>(
                 <SearchSuggestionResultComponent key={i} movie={movie}/>  
              ))   
             }

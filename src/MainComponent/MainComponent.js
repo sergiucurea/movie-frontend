@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import HeaderComponent from '../HeaderComponent/HeaderComponent.js';
 import SideComponent from '../SideComponent/SideComponent.js'
 import MovieComponent from '../MovieComponent/MovieComponent.js';
-import MovieService from '../Services/MovieService.js';
+import {MovieService} from '../Services/MovieService.js';
 import { throwStatement } from 'babel-types';
 import SearchService from '../Services/SearchService.js';
 export default class MainComponent extends Component {
@@ -15,11 +15,11 @@ export default class MainComponent extends Component {
         category:[],
         searchString:""
         }
-       
         this.trackScrolling=this.trackScrolling.bind(this);
         this.loadMovies=this.loadMovies.bind(this);
         this.loadMoviesFiltered=this.loadMoviesFiltered.bind(this);
-        
+        this.searchEntered=this.searchEntered.bind(this);
+        this.applyFilters=this.applyFilters.bind(this);
     }
 
     dislayByName(searchStringy,page,limit){
@@ -32,7 +32,6 @@ export default class MainComponent extends Component {
                 searchString:searchStringy
                })
         })
-
     }
 
     clearScreen(){
@@ -88,32 +87,29 @@ export default class MainComponent extends Component {
         }
     }
 
- 
-
     componentDidMount() {
         this.loadMovies(this.state.pageIndex,15);
         document.addEventListener('scroll', this.trackScrolling);
     }
 
     trackScrolling(){
-        let current=document.documentElement.scrollTop;
-        let client=document.documentElement.clientHeight;
-        let offset=document.documentElement.offsetHeight;
+        const current=document.documentElement.scrollTop;
+        const client=document.documentElement.clientHeight;
+        const offset=document.documentElement.offsetHeight;
+        const loadMovies=(this.state.category.length==0&&this.state.searchString.length==0);
+        const loadMoviesBySearch=(this.state.searchString.length>0&&this.state.category.length==0);
+        const loadMoviesByFilter=(this.state.searchString.length==0&&this.state.category.length>0);
         if(current+client==offset)
-            if (this.state.category.length==0&&this.state.searchString.length==0){
-               // console.log("I am calling loadmovies");
+            if (loadMovies){
                 this.loadMovies(this.state.pageIndex,15);
             }
             else 
-            if (this.state.searchString.length>0&&this.state.category.length==0){
-               // console.log("I am calling displayByName");
+            if (loadMoviesBySearch){
                 this.dislayByName(this.state.searchString,this.state.pageIndex,15);
             }
-            else if(this.state.searchString.length==0&&this.state.category.length>0){
+            else if(loadMoviesByFilter){
                 this.loadMoviesFiltered(this.state.pageIndex,15,this.state.category);
-              //  console.log("I am calling loadMoviessFiltered");
             }
-    
     }
 
     render(){
@@ -121,14 +117,14 @@ export default class MainComponent extends Component {
             return <h1>LOADING</h1>;
         }
         return(
-        <div className="MainView rows">
-            <HeaderComponent searchEntered={this.searchEntered.bind(this)} />
-            <div className="sideRow">
-                <div className="SideComponentContainer">
-                    <SideComponent applyFilters={this.applyFilters.bind(this)} />
+        <div className="main-view rows">
+            <HeaderComponent searchEntered={this.searchEntered} />
+            <div className="side-row">
+                <div className="side-component-container">
+                    <SideComponent applyFilters={this.applyFilters} />
                 </div>
             </div>
-            <div className="MovieComponentContainer">
+            <div className="movie-component-container">
             {this.state.movieArray.map((movie, i)=>(
                 <MovieComponent key={i} movie={movie} />
             ))}
